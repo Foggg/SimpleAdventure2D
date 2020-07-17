@@ -17,6 +17,8 @@ public class MainScreen implements Screen {
     private Texture mainTexture;
     private BitmapFont gameName;
     private BitmapFont pressEnter;
+    private float logoX = 1500;
+    private float logoY = 750;
     public Sprite sprite;
 
     public MainScreen(Game game) {
@@ -31,7 +33,7 @@ public class MainScreen implements Screen {
         gameName = new BitmapFont();
         pressEnter = new BitmapFont();
         sprite = new Sprite(mainTexture);
-        sprite.setBounds(200, 200, 500,250);
+        sprite.setBounds((float)Gdx.graphics.getWidth() / 2 - logoX / 2, (float)Gdx.graphics.getHeight() / 2 - logoY / 2, logoX, logoY);
 
     }
 
@@ -40,8 +42,8 @@ public class MainScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         sprite.draw(batch);
-        gameName.draw(batch, "Simple Adventure 2D", 700, 700);
-        pressEnter.draw(batch, "Press Enter to Start", 200, 200);
+        gameName.draw(batch, "Simple Adventure 2D", (float)Gdx.graphics.getWidth() / 2 - 70, (float)Gdx.graphics.getHeight() / 2 + 100);
+        pressEnter.draw(batch, "Press Enter to Start", (float)Gdx.graphics.getWidth() / 2 - 70, (float)Gdx.graphics.getHeight() / 2 - 350);
         gameName.setColor(1, 1, 0, 1);
         pressEnter.setColor(1, 0, 0, 1);
         batch.end();
